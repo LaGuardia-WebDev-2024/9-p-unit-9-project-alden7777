@@ -8,7 +8,7 @@ var Slot3 = round(random(3))
 Slot1=1
 Slot2=1
 Slot3=1
-var Money = 10
+var Money = 20
 draw = function(){
 var knobRed = color(200,0,0);
 var collect = color(10,100,0);
@@ -16,17 +16,34 @@ var mousePosition = get(mouseX, mouseY);
 
   background(100,100,100);
 
-if(Slot1==Slot2 && Slot1==Slot3){
+
+if(Slot1==Slot2 && Slot1==Slot3){ 
+  stroke(255,255,255)
+  rect(80,40,240,70)
+  fill(255,255,255)
+  textSize(30)
+  text("YOU WIN!",130,68)
+  text("JACKPOT!",130,98)
+  textSize(12)
+  text("PRESS HERE->", 6, 344)
+
   fill(collect)
+  
 }
 else{
-  fill(200,200,200)
+  fill(0,0,0)
+  
 }
-rect(100,320,200,40);
 
+if(Slot1==Slot2 || Slot2==Slot3){
+
+};
+stroke(0,0,0)
+rect(100,320,200,40);
+textSize(30)
 fill(0,0,0)
-text("$",4,30)
-text(Money, 20,30)
+text("$",7,30)
+text(Money, 25,30)
 
   fill(200,200,200)
   strokeWeight(4)
@@ -65,7 +82,7 @@ text("SLOT MACHINE", 108,167);
     Money--
 
   };
- fill(200,0,0)
+ fill(0,0,0)
     textSize(40)
    text(Slot1,120,260)
    text(Slot2,188,260)
@@ -76,9 +93,14 @@ Money=Money+30
     Slot1 = round(random(3))
     Slot2 = round(random(3))
     Slot3 = round(random(3))
+
+
+
 };
 
-
+fill(0,0,0)
+textSize(30)
+text("COLLECT$$",118,350);
 
 };
 
