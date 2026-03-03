@@ -11,16 +11,19 @@ var clickCounter = 0
 Slot1=1
 Slot2=1
 Slot3=1
-var Money = 200000
+var Money = 2000000
 var KiwiCounter=0
 var MelonCounter=0
 var BananaCounter=0
 var AppleCounter=0
+var LemonCounter=0
 draw = function(){
+var LGamb = color(1,1,1)
 var KiwiColor = color(159, 240, 29)
 var MelonColor = color(157, 240, 29)
 var BananaColor = color(152, 240, 29)
 var AppleColor = color(149, 240, 29)
+var LemonColor = color(146, 240, 29)
 var LetsGamble = color(0,255,0)
 var NoThanks = color(255,0,0)
 var knobRed = color(200,0,0);
@@ -179,16 +182,32 @@ text("x",35,223)
 //LEMON 🍋
 textSize(20)
 text("🍋", 385, 280)
-fill(147, 240, 29)
+fill(146, 240, 29)
 strokeWeight(1)
 rect(419,265,63,16)
 fill(0,0,0)
 text("$200k", 419, 280)
 textSize(25)
-text("🍎",3,225)
-text(AppleCounter,44,225)
+text("🍋",3,265)
+text(LemonCounter,44,265)
 textSize(17)
-text("x",35,223)
+text("x",35,263)
+fill(224, 199, 40);
+
+//HOUSE
+textSize(20)
+fill(0,0,0)
+text("??", 385, 310)
+fill(146, 240, 29)
+strokeWeight(1)
+rect(419,295,63,16)
+fill(0,0,0)
+text("$999k", 419, 310)
+textSize(25)
+text("🍋",3,265)
+text(LemonCounter,44,265)
+textSize(17)
+text("x",35,263)
 fill(224, 199, 40);
 
 //lose conditions
@@ -217,6 +236,11 @@ if(Money>=20000 && mousePressed && mousePosition==AppleColor){
 AppleCounter=AppleCounter+1
 Money= Money-20000
 };
+if(Money>=200000 && mousePressed && mousePosition==LemonColor){
+LemonCounter=LemonCounter+1
+Money= Money-200000
+};
+
 if(clickCounter==10 || clickCounter==11 || clickCounter==12){
   fill(0,0,0)
   rect(4,40,491,340)
@@ -227,7 +251,7 @@ if(clickCounter==10 || clickCounter==11 || clickCounter==12){
   text("ODDS TO TRIPLE SAVINGS:66-33", 20, 300)
   fill(0,255,0)
   rect(60,320,90,30)
-  fill(0,0,0)
+  fill(1,1,1)
   textSize(11)
   text("Let's GAMBLE",66,340)
   fill(255,0,0)
@@ -243,6 +267,15 @@ if(clickCounter==11 && mousePosition==LetsGamble && mousePressed){
 Money=Money+Money+Money
 };
 if(clickCounter==12 && mousePosition==LetsGamble && mousePressed){
+Money=Money+Money+Money
+};
+if(clickCounter==10 && mousePosition==LGamb && mousePressed){
+Money=0
+};
+if(clickCounter==11 && mousePosition==LGamb && mousePressed){
+Money=Money+Money+Money
+};
+if(clickCounter==12 && mousePosition==LGamb && mousePressed){
 Money=Money+Money+Money
 };
 if(mousePosition=NoThanks && mousePressed){
