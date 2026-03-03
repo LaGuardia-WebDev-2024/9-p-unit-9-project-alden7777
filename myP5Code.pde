@@ -7,7 +7,7 @@ var Slot2 = round(random(3))
 var Slot3 = round(random(3))
 var cashX = random(400)
 var cashY = random(400)
-var clickCounter = 0
+var clickCounter = 10
 Slot1=1
 Slot2=1
 Slot3=1
@@ -164,6 +164,12 @@ MelonCounter= MelonCounter+1
 Money= Money-100
 };
 text(clickCounter, 30, 300)
+
+//ISSUES HERE
+if(clickCounter==10 || clickCounter==11){
+  rect(100,50,300,300)
+};
+
 };
 
 mouseClicked = function(){
