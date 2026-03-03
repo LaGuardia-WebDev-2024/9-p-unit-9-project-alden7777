@@ -7,6 +7,7 @@ var Slot2 = round(random(3))
 var Slot3 = round(random(3))
 var cashX = random(400)
 var cashY = random(400)
+var clickCounter = 0
 Slot1=1
 Slot2=1
 Slot3=1
@@ -162,10 +163,11 @@ if(Money>=100 && mousePressed && mousePosition==MelonColor){
 MelonCounter= MelonCounter+1
 Money= Money-100
 };
+text(clickCounter, 30, 300)
 };
 
 mouseClicked = function(){
-
+clickCounter= round(random(30))
 
 };
 
