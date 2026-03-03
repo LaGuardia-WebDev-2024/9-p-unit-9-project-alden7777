@@ -11,9 +11,10 @@ Slot1=1
 Slot2=1
 Slot3=1
 var Money = 20
+var KiwiCounter=0
 draw = function(){
 var KiwiColor = color(159, 240, 29)
-var KiwiCounter=0
+
 var knobRed = color(200,0,0);
 var collect = color(10,100,0);
 var mousePosition = get(mouseX, mouseY);
@@ -119,13 +120,28 @@ fill(0,0,0)
 text("$25", 429, 120)
 textSize(25)
 text("🥝",5,90)
-text(KiwiCounter,40,90)
+text(KiwiCounter,44,90)
+textSize(17)
+text("x",35,88)
 //WATERMELON
+textSize(20)
+text("🍉", 402, 160)
+fill(159, 240, 29)
+strokeWeight(1)
+rect(429,105,40,16)
+fill(0,0,0)
+text("$25", 429, 120)
+textSize(25)
+text("🥝",5,90)
+text(KiwiCounter,44,90)
+textSize(17)
+text("x",35,88)
 
 fill(224, 199, 40);
 
 if(Money>=25 && mousePressed && mousePosition==KiwiColor){
-Kiwi
+KiwiCounter=KiwiCounter+1
+Money= Money-25
 };
 };
 
