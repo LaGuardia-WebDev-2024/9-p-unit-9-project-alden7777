@@ -7,18 +7,25 @@ var Slot2 = round(random(3))
 var Slot3 = round(random(3))
 var cashX = random(400)
 var cashY = random(400)
-var clickCounter = 10
+var clickCounter = 0
 Slot1=1
 Slot2=1
 Slot3=1
-var Money = 20
+var Money = 200000
 var KiwiCounter=0
 var MelonCounter=0
+var BananaCounter=0
+var AppleCounter=0
 draw = function(){
 var KiwiColor = color(159, 240, 29)
 var MelonColor = color(157, 240, 29)
+var BananaColor = color(152, 240, 29)
+var AppleColor = color(149, 240, 29)
+var LetsGamble = color(0,255,0)
+var NoThanks = color(255,0,0)
 var knobRed = color(200,0,0);
 var collect = color(10,100,0);
+var counter = 0
 var mousePosition = get(mouseX, mouseY);
 var collectSmall = color(11,100,0)
   background(100,100,100);
@@ -58,7 +65,7 @@ text(Money, 25,30)
    rect(319,260,11,100);//handle
  fill(200,0,0)
   ellipse(325,360,30,30);//knob
-
+ counter=counter+5
   }
 else{
 
@@ -93,7 +100,7 @@ text("SLOT MACHINE", 108,167);
    text(Slot3,253,260);
 //win conditions
 if(mousePosition==collect && mousePressed){
-Money=Money+Money
+Money=Money+70+counter
     Slot1 = round(random(3))
     Slot2 = round(random(3))
     Slot3 = round(random(3))
@@ -141,8 +148,47 @@ text(MelonCounter,44,140)
 textSize(17)
 text("x",35,138)
 
+//BANANA
+textSize(20)
+text("🍌", 385, 200)
+fill(152, 240, 29)
+strokeWeight(1)
+rect(419,185,63,16)
+fill(0,0,0)
+text("$1k", 419, 200)
+textSize(25)
+text("🍌",3,185)
+text(BananaCounter,44,185)
+textSize(17)
+text("x",35,183)
 
+//APPLE
+textSize(20)
+text("🍎", 385, 240)
+fill(149, 240, 29)
+strokeWeight(1)
+rect(419,225,63,16)
+fill(0,0,0)
+text("$20k", 419, 240)
+textSize(25)
+text("🍎",3,225)
+text(AppleCounter,44,225)
+textSize(17)
+text("x",35,223)
 
+//LEMON 🍋
+textSize(20)
+text("🍋", 385, 280)
+fill(147, 240, 29)
+strokeWeight(1)
+rect(419,265,63,16)
+fill(0,0,0)
+text("$200k", 419, 280)
+textSize(25)
+text("🍎",3,225)
+text(AppleCounter,44,225)
+textSize(17)
+text("x",35,223)
 fill(224, 199, 40);
 
 //lose conditions
@@ -163,6 +209,14 @@ if(Money>=100 && mousePressed && mousePosition==MelonColor){
 MelonCounter= MelonCounter+1
 Money= Money-100
 };
+if(Money>=1000 && mousePressed && mousePosition==BananaColor){
+BananaCounter= BananaCounter+1
+Money= Money-1000
+};
+if(Money>=20000 && mousePressed && mousePosition==AppleColor){
+AppleCounter=AppleCounter+1
+Money= Money-20000
+};
 if(clickCounter==10 || clickCounter==11 || clickCounter==12){
   fill(0,0,0)
   rect(4,40,491,340)
@@ -171,13 +225,35 @@ if(clickCounter==10 || clickCounter==11 || clickCounter==12){
   text("SPECIAL OPPORTUNITY", 20,100)
   text("GAMBLE IT ALL FOR A BIG WIN?", 20,200)
   text("ODDS TO TRIPLE SAVINGS:66-33", 20, 300)
+  fill(0,255,0)
+  rect(60,320,90,30)
+  fill(0,0,0)
+  textSize(11)
+  text("Let's GAMBLE",66,340)
+  fill(255,0,0)
+  rect(300,320,90,30)
+  fill(0,0,0)
+  text("No Thanks", 317,340)
+};
+fill(189,0,0);
+if(clickCounter==10 && mousePosition==LetsGamble && mousePressed){
+Money=0
+};
+if(clickCounter==11 && mousePosition==LetsGamble && mousePressed){
+Money=Money+Money+Money
+};
+if(clickCounter==12 && mousePosition==LetsGamble && mousePressed){
+Money=Money+Money+Money
+};
+if(mousePosition=NoThanks && mousePressed){
+clickCounter=0
 };
 text(clickCounter, 30, 380);
 
 };
 
 mouseClicked = function(){
-clickCounter= round(random(60))
+clickCounter= round(random(100))
 
 
 };
