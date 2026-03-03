@@ -163,16 +163,21 @@ if(Money>=100 && mousePressed && mousePosition==MelonColor){
 MelonCounter= MelonCounter+1
 Money= Money-100
 };
-if(clickCounter==10 || clickCounter==11){
+if(clickCounter==10 || clickCounter==11 || clickCounter==12){
   fill(0,0,0)
-  rect(0,40,500,340)
+  rect(4,40,491,340)
+  fill(255,255,255)
+  textSize(20)
+  text("SPECIAL OPPORTUNITY", 20,100)
+  text("GAMBLE IT ALL FOR A BIG WIN?", 20,200)
+  text("ODDS TO TRIPLE SAVINGS:66-33", 20, 300)
 };
-text(clickCounter, 30, 300);
+text(clickCounter, 30, 380);
 
 };
 
 mouseClicked = function(){
-clickCounter= round(random(30))
+clickCounter= round(random(60))
 
 
 };
