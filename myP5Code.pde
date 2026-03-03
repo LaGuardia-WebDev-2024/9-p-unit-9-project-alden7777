@@ -163,17 +163,17 @@ if(Money>=100 && mousePressed && mousePosition==MelonColor){
 MelonCounter= MelonCounter+1
 Money= Money-100
 };
-text(clickCounter, 30, 300)
-
-//ISSUES HERE
 if(clickCounter==10 || clickCounter==11){
-  rect(100,50,300,300)
+  fill(0,0,0)
+  rect(0,40,500,340)
 };
+text(clickCounter, 30, 300);
 
 };
 
 mouseClicked = function(){
 clickCounter= round(random(30))
+
 
 };
 
