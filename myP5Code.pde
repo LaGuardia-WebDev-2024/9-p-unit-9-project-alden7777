@@ -12,9 +12,10 @@ Slot2=1
 Slot3=1
 var Money = 20
 var KiwiCounter=0
+var MelonCounter=0
 draw = function(){
 var KiwiColor = color(159, 240, 29)
-
+var MelonColor = color(157, 240, 29)
 var knobRed = color(200,0,0);
 var collect = color(10,100,0);
 var mousePosition = get(mouseX, mouseY);
@@ -107,41 +108,59 @@ if(Slot1==Slot2 && Slot1==Slot3){
 
 //PRIZES
 fill(200,200,200)
-rect(400,70,80,250)
+rect(380,70,110,250)
 fill(0,0,0)
 textSize(20)
 text("PRIZES",402,88)
+
 //KIWI PRIZE
-text("🥝", 402, 120)
+text("🥝", 385, 120)
 fill(159, 240, 29)
 strokeWeight(1)
-rect(429,105,40,16)
+rect(419,105,63,16)
 fill(0,0,0)
-text("$25", 429, 120)
-textSize(25)
-text("🥝",5,90)
-text(KiwiCounter,44,90)
-textSize(17)
-text("x",35,88)
-//WATERMELON
-textSize(20)
-text("🍉", 402, 160)
-fill(159, 240, 29)
-strokeWeight(1)
-rect(429,105,40,16)
-fill(0,0,0)
-text("$25", 429, 120)
+text("$25", 419, 120)
 textSize(25)
 text("🥝",5,90)
 text(KiwiCounter,44,90)
 textSize(17)
 text("x",35,88)
 
+//WATERMELON
+textSize(20)
+text("🍉", 385, 160)
+fill(157, 240, 29)
+strokeWeight(1)
+rect(419,145,63,16)
+fill(0,0,0)
+text("$100", 419, 160)
+textSize(25)
+text("🍉",3,140)
+text(MelonCounter,44,140)
+textSize(17)
+text("x",35,138)
+
+
+
 fill(224, 199, 40);
+
+//lose conditions
+if(Money==0){
+fill(200,5,5)
+rect(1,1,500,400)
+fill(0,0,0)
+text("YOU'RE BROKE!",50,200)
+text("RELOAD PAGE TO RETRY.",50,230)
+};
 
 if(Money>=25 && mousePressed && mousePosition==KiwiColor){
 KiwiCounter=KiwiCounter+1
 Money= Money-25
+};
+
+if(Money>=100 && mousePressed && mousePosition==MelonColor){
+MelonCounter= MelonCounter+1
+Money= Money-100
 };
 };
 
