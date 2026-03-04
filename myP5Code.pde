@@ -220,6 +220,8 @@ rect(1,1,500,400)
 fill(0,0,0)
 text("YOU'RE BROKE!",50,200)
 text("RELOAD PAGE TO RETRY.",50,230)
+reveal=0
+reveal1=0
 };
 
 if(Money>=25 && mousePressed && mousePosition==KiwiColor){
