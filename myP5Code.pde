@@ -8,21 +8,17 @@ var Slot3 = round(random(3))
 var cashX = random(400)
 var cashY = random(400)
 var clickCounter = 0
-Slot1=1
-Slot2=1
-Slot3=1
-var Money = 200
-var KiwiMulti= KiwiCounter+1
-var MelonMulti= MelonCounter+1
-var BananaMulti= BananaCounter+1
-var AppleMulti= AppleCounter+1
-var LemonMulti= LemonCounter+1
+var Money = 20
+var reveal= -180
+var reveal1 = -200
 var KiwiCounter=0
 var MelonCounter=0
 var BananaCounter=0
 var AppleCounter=0
 var LemonCounter=0
 var HouseCounter=0
+var House9= "??"
+var OKAY23= color(1,255,1)
 draw = function(){
 var LGamb = color(1,1,1)
 var KiwiColor = color(159, 240, 29)
@@ -110,7 +106,7 @@ text("SLOT MACHINE", 108,167);
    text(Slot3,253,260);
 //win conditions
 if(mousePosition==collect && mousePressed){
-Money=Money+70+counter
+Money=Money+Money+counter+counter+counter+counter+counter+counter+counter+counter+counter+counter+counter+counter
     Slot1 = round(random(3))
     Slot2 = round(random(3))
     Slot3 = round(random(3))
@@ -204,14 +200,14 @@ fill(224, 199, 40);
 //HOUSE
 textSize(20)
 fill(0,0,0)
-text("??", 385, 310)
+text(House9, 385, 310)
 fill(141, 240, 29)
 strokeWeight(1)
 rect(419,295,63,16)
 fill(0,0,0)
 text("$999k", 419, 310)
 textSize(25)
-text("??",3,305)
+text(House9,3,305)
 text(HouseCounter,44,305)
 textSize(17)
 text("x",35,303)
@@ -248,8 +244,40 @@ LemonCounter=LemonCounter+1
 Money= Money-200000
 };
 if(Money>=999000 && mousePressed && mousePosition==HouseColor){
-HouseCounter=HouseCounter+1
+HouseCounter=HouseCounter+101
 Money= Money-999000
+};
+strokeWeight(0.00001)
+fill(200,200,200)
+rect(383,315,100,reveal);
+fill(100,100,100)
+rect(1,315,80,reveal1)
+
+strokeWeight(3)
+fill(0,0,0);
+
+if(KiwiCounter>0){
+reveal=-150
+reveal1=-158
+};
+if(MelonCounter>0){
+reveal=-110
+reveal1=-128
+};
+if(BananaCounter>0){
+reveal=-70
+reveal1=-80
+};
+if(AppleCounter>0){
+reveal=-30
+reveal1=-40
+};
+if(LemonCounter>0){
+reveal=0
+reveal1=0
+};
+if(HouseCounter>0){
+House9="🏠"
 };
 
 if(clickCounter==10 || clickCounter==11 || clickCounter==12){
@@ -289,10 +317,29 @@ Money=Money+Money+Money
 if(clickCounter==12 && mousePosition==LGamb && mousePressed){
 Money=Money+Money+Money
 };
-if(mousePosition=NoThanks && mousePressed){
+if(mousePosition==NoThanks && mousePressed){
 clickCounter=0
 };
-text(clickCounter, 30, 380);
+
+if(HouseCounter>100){
+fill(0,0,0,)
+rect(4,40,491,340)
+textSize(20)
+fill(255,255,255,)
+text("YOU WIN", 20,100)
+text("YOU'VE WON BACK YOUR HOUSE", 20,200)
+text("FREE FROM DEBT, AT LAST.", 20, 300)
+fill(1,255,1)
+  rect(60,320,90,30)
+  fill(1,2,1)
+  textSize(11)
+  text("OKAY",70,340)
+};
+if(mousePosition==OKAY23 && mousePressed){
+HouseCounter=1
+fill(255,255,244)
+rect(20,20,20,20)
+};
 
 };
 
