@@ -11,12 +11,18 @@ var clickCounter = 0
 Slot1=1
 Slot2=1
 Slot3=1
-var Money = 2000000
+var Money = 200
+var KiwiMulti= KiwiCounter+1
+var MelonMulti= MelonCounter+1
+var BananaMulti= BananaCounter+1
+var AppleMulti= AppleCounter+1
+var LemonMulti= LemonCounter+1
 var KiwiCounter=0
 var MelonCounter=0
 var BananaCounter=0
 var AppleCounter=0
 var LemonCounter=0
+var HouseCounter=0
 draw = function(){
 var LGamb = color(1,1,1)
 var KiwiColor = color(159, 240, 29)
@@ -24,6 +30,7 @@ var MelonColor = color(157, 240, 29)
 var BananaColor = color(152, 240, 29)
 var AppleColor = color(149, 240, 29)
 var LemonColor = color(146, 240, 29)
+var HouseColor = color(141, 240, 29)
 var LetsGamble = color(0,255,0)
 var NoThanks = color(255,0,0)
 var knobRed = color(200,0,0);
@@ -198,16 +205,16 @@ fill(224, 199, 40);
 textSize(20)
 fill(0,0,0)
 text("??", 385, 310)
-fill(146, 240, 29)
+fill(141, 240, 29)
 strokeWeight(1)
 rect(419,295,63,16)
 fill(0,0,0)
 text("$999k", 419, 310)
 textSize(25)
-text("🍋",3,265)
-text(LemonCounter,44,265)
+text("??",3,305)
+text(HouseCounter,44,305)
 textSize(17)
-text("x",35,263)
+text("x",35,303)
 fill(224, 199, 40);
 
 //lose conditions
@@ -239,6 +246,10 @@ Money= Money-20000
 if(Money>=200000 && mousePressed && mousePosition==LemonColor){
 LemonCounter=LemonCounter+1
 Money= Money-200000
+};
+if(Money>=999000 && mousePressed && mousePosition==HouseColor){
+HouseCounter=HouseCounter+1
+Money= Money-999000
 };
 
 if(clickCounter==10 || clickCounter==11 || clickCounter==12){
